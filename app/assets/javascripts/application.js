@@ -19,3 +19,4 @@
 
 //= require posts/modal
 //= require posts/style
+//= require posts/infinite_scroll

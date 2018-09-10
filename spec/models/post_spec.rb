@@ -20,6 +20,7 @@ RSpec.describe Post, type: :model do
       expect(Post.all).to eq [second_post, first_post]
     end
   end
+
   it 'by_category scope gets posts by particular category' do
     category = create(:category)
     create(:post, category_id: category.id)
