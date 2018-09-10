@@ -37,7 +37,7 @@ gem 'poltergeist'
 gem 'database_cleaner'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
