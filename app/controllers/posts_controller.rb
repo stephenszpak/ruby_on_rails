@@ -2,7 +2,8 @@ class PostsController < ApplicationController
   before_action :redirect_if_not_signed_in, only: [:new]
 
   def show
-   @post = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    @message_has_been_sent = conversation_exist? if user_signed_in?
   end
 
   def hobby
@@ -23,11 +24,11 @@ class PostsController < ApplicationController
   end
 
   def get_posts
-    PostsForBranchService.new({
+    PostsForBranchService.new(
       search: params[:search],
       category: params[:category],
       branch: params[:action]
-    }).call
+    ).call
   end
 
   def new
@@ -54,8 +55,10 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:content, :title, :category_id)
-                         .merge(user_id: current_user.id)
+          .merge(user_id: current_user.id)
   end
 
-
+  def conversation_exist?
+    Private::Conversation.between_users(current_user.id, @post.user.id).present?
+  end
 end
