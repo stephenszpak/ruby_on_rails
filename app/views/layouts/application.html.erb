@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Collabfield</title>
+    <%= Gon::Base.render_data %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,5 +13,6 @@
   <body>
     <%= render 'layouts/navigation' %>
     <%= yield %>
+    <%= render 'layouts/application/private_conversations_windows' %>
   </body>
 </html>
