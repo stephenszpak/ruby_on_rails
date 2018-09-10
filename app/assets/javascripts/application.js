@@ -20,5 +20,7 @@
 //= require posts/modal
 //= require posts/style
 //= require posts/infinite_scroll
+
 //= require conversations/position_and_visibility
 //= require conversations/toggle_window
+//= require conversations/conversation
