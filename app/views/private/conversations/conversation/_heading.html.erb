@@ -1,4 +1,6 @@
-<%= conv_heading_class(@contact) %>
+<div class="panel-heading <%= conv_heading_class(@contact) %>">
+  <span class="contact-name-notif"><%= @recipient.name %></span>
+</div> <!-- conversation-heading -->
 
 <!-- Close conversation button -->
 <%= link_to "X",

@@ -14,10 +14,11 @@ textarea {
 .panel-body {
   position: relative;
   display: none;
-  padding: 0 0 5px 0;
+  padding: 0 0 5px;
 }
 
-.conversation-window, .new_chat_window {
+.conversation-window,
+.new_chat_window {
   min-width: 400px;
   max-width: 400px;
   position: fixed;
@@ -26,18 +27,21 @@ textarea {
   list-style-type: none;
 }
 
-.conversation-heading, .conversation-heading-full, .new_chat_window {
+.conversation-heading,
+.conversation-heading-full,
+.new_chat_window {
   background-color: $navbarColor !important;
   color: white !important;
   height: 40px;
   border: none !important;
+
   a {
     color: white !important;
   }
-
 }
 
-.conversation-heading, .conversation-heading-full {
+.conversation-heading,
+.conversation-heading-full {
   padding: 0 0 0 15px;
   width: 360px;
   display: inline-block;
@@ -45,7 +49,10 @@ textarea {
   line-height: 40px;
 }
 
-.close-conversation, .add-people-to-chat, .add-user-to-contacts, .contact-request-sent {
+.add-people-to-chat,
+.add-user-to-contacts,
+.close-conversation,
+.contact-request-sent {
   color: white;
   float: right;
   height: 40px;
@@ -56,7 +63,8 @@ textarea {
   background-color: $navbarColor;
 }
 
-.close-conversation, .add-user-to-contacts {
+.add-user-to-contacts,
+.close-conversation {
   text-align: center;
   vertical-align: middle;
   line-height: 40px;
@@ -69,7 +77,9 @@ textarea {
     background-color: white;
     color: $navbarColor !important;
   }
-  &:visited, &:focus {
+
+  &:focus,
+  &:visited {
     color: white;
   }
 }
@@ -78,7 +88,8 @@ textarea {
   background-color: $navbarColor;
 }
 
-.send-private-message, .send-group-message {
+.send-group-message,
+.send-private-message {
   textarea {
     border-radius: 0;
     border: none;
@@ -100,12 +111,14 @@ textarea {
   max-height: 300px;
   overflow-y: auto;
   overflow-x: hidden;
+
   ul {
     padding: 0;
   }
 }
 
-.message-received, .message-sent {
+.message-received,
+.message-sent {
   max-width: 300px;
   word-wrap: break-word;
   z-index: 1;
@@ -136,12 +149,12 @@ textarea {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   line-height: 1px;
   line-height: 0.1rem;
-  margin: 20px 0 20px;
+  margin: 20px 0;
+
   span {
     background: #fff;
     padding: 0 10px;
   }
-
 }
 
 .load-more-messages {
@@ -161,12 +174,15 @@ textarea {
 
 .add-user-to-contacts {
   display: none;
+
   i {
     opacity: 0.8;
+
     &:hover {
       opacity: 1;
     }
   }
+
   &:hover {
     color: white;
   }
@@ -177,14 +193,17 @@ textarea {
   padding: 10px 0;
 }
 
-.add-people-to-chat, .contact-request-sent {
+.add-people-to-chat,
+.contact-request-sent {
   display: none;
   margin: 0;
   padding: 0;
+
   div {
     width: 40px;
     height: 40px;
     display: table;
+
     i {
       display: table-cell;
       text-align: center;
@@ -198,6 +217,7 @@ textarea {
     opacity: 0.8;
     transition: opacity 0.15s;
   }
+
   &:hover i {
     opacity: 1;
   }
@@ -211,26 +231,34 @@ textarea {
   text-align: center;
   background-color: white;
   z-index: 2;
+
   .pending-request {
     padding: 10px 0;
   }
+
   .request-response {
     padding: 10px 0;
   }
-  .accept-request, .decline-request {
+
+  .accept-request,
+  .decline-request {
     a {
       padding: 10px 0;
     }
   }
+
   .contact-name {
-    padding: 10px 0 0 0;
+    padding: 10px 0 0;
   }
+
   .accept-request {
     margin-right: 10px;
+
     a {
       color: green;
     }
   }
+
   .decline-request {
     a {
       font-weight: bold;
@@ -251,7 +279,8 @@ textarea {
   z-index: 2;
 }
 
-.select-users-dropdown, .select-users-button {
+.select-users-button,
+.select-users-dropdown {
   border: none;
   display: inline-block;
   margin: 0;
@@ -274,9 +303,11 @@ textarea {
   padding: 0 10px;
   word-wrap: break-word;
   z-index: 1;
+
   .row {
     position: relative;
   }
+
   .hidden-item {
     position: absolute;
     left: 0;
@@ -284,28 +315,131 @@ textarea {
     line-height: 20px;
     visibility: hidden;
   }
+
   .message-content {
     margin-left: 40px;
   }
+
   &:hover {
     background-color: rgb(250, 250, 250);
   }
+
   p {
     margin: 0;
   }
-  .message-author, .message-time {
+
+  .message-author,
+  .message-time {
     font-size: 12px;
     font-size: 1.2rem;
   }
+
   .message-author {
     margin-left: 40px;
     font-weight: bold;
   }
+
   .message-time {
     padding-left: 2px;
     color: rgba(0,0,0,0.5);
   }
+
   &:hover .message-time {
     visibility: visible;
+  }
+}
+
+.add-user-to-contacts {
+  display: none;
+
+  i {
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    color: white;
+  }
+}
+
+.add-user-to-contacts-message {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.add-people-to-chat,
+.contact-request-sent {
+  display: none;
+  margin: 0;
+  padding: 0;
+
+  div {
+    width: 40px;
+    height: 40px;
+    display: table;
+
+    i {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+}
+
+.add-people-to-chat {
+  i {
+    opacity: 0.8;
+    transition: opacity 0.15s;
+  }
+
+  &:hover i {
+    opacity: 1;
+  }
+}
+
+.contact-request-status {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 400px;
+  text-align: center;
+  background-color: white;
+  z-index: 2;
+
+  .pending-request {
+    padding: 10px 0;
+  }
+
+  .request-response {
+    padding: 10px 0;
+  }
+
+  .accept-request,
+  .decline-request {
+    a {
+      padding: 10px 0;
+    }
+  }
+
+  .contact-name {
+    padding: 10px 0 0;
+  }
+
+  .accept-request {
+    margin-right: 10px;
+
+    a {
+      color: green;
+    }
+  }
+
+  .decline-request {
+    a {
+      font-weight: bold;
+      color: red;
+    }
   }
 }
