@@ -1,4 +1,4 @@
-class CreatePrivateConversations < ActiveRecord::Migration[5.1]
+class CreatePrivateConversations < ActiveRecord::Migration[5.2]
   def change
     create_table :private_conversations do |t|
       t.integer :recipient_id
