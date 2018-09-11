@@ -61,4 +61,6 @@ $(document).on('turbolinks:load', function() {
       conversation_window.find('form textarea').click().focus();
     }
   });
+
+  
 });
