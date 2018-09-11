@@ -6,13 +6,16 @@ describe OrderConversationsService do
     it 'returns ordered conversations in descending order' do
       user = create(:user)
       conversation1 = create(:private_conversation,
-                             sender_id: user.id,
-                             messages: [create(:private_message)])
-      conversation2 = create(:private_conversation,
-                             sender_id: user.id,
-                             messages: [create(:private_message)])
-      conversations = [conversation2, conversation1]
-      expect(OrderConversationsService.new(user: user).call).to eq conversations
+                              sender_id: user.id,
+                              messages: [create(:private_message)])
+      conversation2 = create(:group_conversation,
+                              users: [user],
+                              messages: [create(:group_message)])
+      conversation3 = create(:private_conversation,
+                              sender_id: user.id,
+                              messages: [create(:private_message)])
+      conversations = [conversation3, conversation2, conversation1]
+      expect(OrderConversationsService.new({user: user}).call).to eq conversations
     end
   end
 end
