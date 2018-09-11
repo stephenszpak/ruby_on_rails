@@ -12,7 +12,6 @@ class User < ApplicationRecord
             class_name: 'Private::Conversation'
 
   # CONTACTS
-
   has_many :contacts
   has_many :all_received_contact_requests,
            class_name: 'Contact',
