@@ -1,16 +1,13 @@
-.collapsed,
-.navbar-default,
-.navbar-toggle:focus,
-button.navbar-toggle {
-  background: $navbarColor !important;
-  border: none;
-
-  a {
-    color: white !important;
-  }
+body {
+  margin-top: 50px;
 }
 
 nav {
+  .col-sm-5,
+  .col-sm-7 {
+    padding: 0;
+  }
+
   .navbar-header {
     width: 100%;
 
@@ -28,68 +25,81 @@ nav {
       opacity: 0.8;
     }
   }
+}
 
-  .col-sm-5,
-  .col-sm-7 {
-    padding: 0;
-  }
+.collapsed,
+.navbar-default,
+.navbar-toggle:focus,
+button.navbar-toggle {
+  background: $navbarColor !important;
+  border: none;
 
-  .pc-menu {
-    margin-right: 10px;
-  }
-
-  .mobile-menu {
-    i {
-      color: white;
-    }
-
-    ul {
-      padding: 0;
-    }
-
-    a {
-      display: block;
-      padding: 10px 0 10px 25px !important;
-    }
-
-    a:hover {
-      background: white !important;
-      color: black !important;
-
-      i {
-        color: black;
-      }
-    }
-  }
-
-  .icon-bar {
-    background-color: white !important;
-  }
-
-  .active a {
-    background: $navbarColor !important;
-    border-bottom: solid 5px white;
-  }
-
-  .dropdown-menu,
-  .dropdown-toggle {
-    background: $navbarColor !important;
-    border: none;
-  }
-
-  .dropdown-menu a:hover {
-    color: black !important;
-    background: white !important;
+  a {
+    color: white !important;
   }
 }
 
-body {
-  margin-top: 70px;
+.navbar-collapse,
+.navbar-toggle {
+  border-color: $navbarColor !important;
+  box-shadow: none;
+}
+
+.navbar-brand {
+  margin: 0 0 0 10px !important;
 }
 
 .brand-mobile {
   font-size: 20px;
   font-size: 2.0rem;
+}
+
+.pc-menu {
+  margin-right: 10px;
+}
+
+.mobile-menu {
+  i {
+    color: white;
+  }
+
+  ul {
+    padding: 0;
+  }
+
+  a {
+    display: block;
+    padding: 10px 0 10px 25px !important;
+  }
+
+  a:hover {
+    background: white !important;
+    color: black !important;
+
+    i {
+      color: black;
+    }
+  }
+}
+
+.icon-bar {
+  background-color: white !important;
+}
+
+.active a {
+  background: $navbarColor !important;
+  border-bottom: solid 5px white;
+}
+
+.dropdown-menu,
+.dropdown-toggle {
+  background: $navbarColor !important;
+  border: none;
+}
+
+.dropdown-menu a:hover {
+  color: black !important;
+  background: white !important;
 }
 
 .navigation-items {
@@ -175,4 +185,88 @@ body {
   .col-sm-2 {
     padding: 0;
   }
+}
+
+#contacts-requests {
+  li {
+    color: black;
+    background-color: $backgroundColor;
+    border-bottom: 1px solid $navbarColor;
+  }
+
+  i {
+    position: relative;
+  }
+
+  .sixty-percent {
+    display: inline-block;
+    width: 60%;
+  }
+
+  .forty-percent {
+    display: inline-block;
+    float: right;
+    width: 40%;
+  }
+
+  .contact-request,
+  .contact-request-responded {
+    .contact-name {
+      padding-left: 10px;
+      padding-right: 20px;
+    }
+
+    .accept-request,
+    .decline-request {
+      a {
+        border: 2px solid $navbarColor;
+        padding: 5px;
+      }
+
+      &:hover a {
+        border-color: black;
+      }
+      transition: 0.15s border-color;
+      transition: 0.15s background-color;
+    }
+
+    .accept-request {
+      a:hover {
+        background-color: black !important;
+      }
+
+      a {
+        background-color: $navbarColor;
+        color: white !important;
+      }
+    }
+
+    .decline-request {
+      a {
+        background-color: $backgroundColor;
+        color: black !important;
+      }
+
+      &:hover,
+      a:hover {
+        background-color: white !important;
+      }
+    }
+
+    .accepted-request {
+      background: $navbarColor;
+      color: white;
+      padding: 5px;
+    }
+  }
+
+  .no-requests {
+    text-align: center;
+  }
+}
+
+#unresponded-contact-requests {
+  top: 0;
+  right: 5px;
+  background: #3F4EBF;
 }

@@ -3,9 +3,7 @@
 //
 //= require action_cable
 //= require_self
-
-//= require channels/private/conversation
-//= require channels/shared/conversation
+//= require_tree ./channels
 
 (function() {
   this.App || (this.App = {});

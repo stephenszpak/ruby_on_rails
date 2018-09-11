@@ -25,7 +25,10 @@ ul {
   list-style-type: none;
 }
 
-a:hover, a:active, a:link, a:visited {
+a:active,
+a:hover,
+a:link,
+a:visited {
   text-decoration: none;
 }
 
@@ -33,7 +36,8 @@ a:hover, a:active, a:link, a:visited {
   display: none;
 }
 
-.login-button, .sign-up-button {
+.login-button,
+.sign-up-button {
   background-color: $navbarColor;
   color: white !important;
 }

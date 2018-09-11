@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -14,7 +14,6 @@ class User < ApplicationRecord
   has_many :group_messages, class_name: 'Group::Message'
   has_and_belongs_to_many :group_conversations, class_name: 'Group::Conversation'
 
-  # CONTACTS
   has_many :contacts
   has_many :all_received_contact_requests,
            class_name: 'Contact',
@@ -32,6 +31,10 @@ class User < ApplicationRecord
   has_many :pending_received_contact_requests, -> { where(contacts: { accepted: false }) },
            through: :all_received_contact_requests,
            source: :user
+
+  # validates :name, presence: true, length: { minimum: 4 }
+  # validates :password, presence: true, length: { minimum: 5 }
+  # validates :password_confirmation, presence: true, length: { minimum: 5 }
 
   # gets all your contacts
   def all_active_contacts

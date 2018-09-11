@@ -1,19 +1,26 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'registrations' }
+
+  devise_scope :user do
+    get 'login', to: 'devise/sessions#new'
+  end
+
+  devise_scope :user do
+    get 'signup', to: 'devise/registrations#new'
+  end
+
+  root to: 'pages#index'
+  get 'messenger', to: 'messengers#index'
+  get 'get_private_conversation', to: 'messengers#get_private_conversation'
+  get 'get_group_conversation', to: 'messengers#get_group_conversation'
+  get 'open_messenger', to: 'messengers#open_messenger'
+
   resources :posts do
     collection do
       get 'hobby'
       get 'study'
       get 'team'
     end
-  end
-
-  # Authentication routes
-  devise_for :users, controllers: { registrations: 'registrations' }
-  devise_scope :user do
-    get 'login', to: 'devise/sessions#new'
-  end
-  devise_scope :user do
-    get 'signup', to: 'devise/registrations#new'
   end
 
   namespace :private do
@@ -37,6 +44,4 @@ Rails.application.routes.draw do
   end
 
   resources :contacts, only: %i[create update destroy]
-
-  root to: 'pages#index'
 end

@@ -1,5 +1,4 @@
 class Group::NewConversationService
-
   def initialize(params)
     @creator_id = params[:creator_id]
     @private_conversation_id = params[:private_conversation_id]
@@ -9,7 +8,7 @@ class Group::NewConversationService
   def call
     creator = User.find(@creator_id)
     pchat_opposed_user = Private::Conversation.find(@private_conversation_id)
-                           .opposed_user(creator)
+                                              .opposed_user(creator)
     new_user_to_chat = User.find(@new_user_id)
     new_group_conversation = Group::Conversation.new
     new_group_conversation.name = '' + creator.name + ', ' +
@@ -34,8 +33,9 @@ class Group::NewConversationService
     message = Group::Message.create(
       user_id: creator.id,
       content: 'Conversation created by ' + creator.name,
-      added_new_users: arr_of_users_ids ,
+      added_new_users: arr_of_users_ids,
       conversation_id: new_group_conversation.id
     )
+    Group::MessageBroadcastJob.perform_later(message, nil, nil)
   end
 end

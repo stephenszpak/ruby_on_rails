@@ -2,7 +2,7 @@ class ContactsController < ApplicationController
   def create
     @contact = current_user.contacts.create(contact_id: params[:contact_id])
     respond_ok
-end
+  end
 
   def update
     @contact = Contact.find_by_users(params[:id], current_user.id)

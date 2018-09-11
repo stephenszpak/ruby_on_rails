@@ -6,31 +6,6 @@ class PostsController < ApplicationController
     @message_has_been_sent = conversation_exist? if user_signed_in?
   end
 
-  def hobby
-    posts_for_branch(params[:action])
-  end
-
-  def study
-    posts_for_branch(params[:action])
-  end
-
-  def team
-    posts_for_branch(params[:action])
-  end
-
-  respond_to do |format|
-    format.html
-    format.js { render partial: 'posts/posts_pagination_page' }
-  end
-
-  def get_posts
-    PostsForBranchService.new(
-      search: params[:search],
-      category: params[:category],
-      branch: params[:action]
-    ).call
-  end
-
   def new
     @branch = params[:branch]
     @categories = Category.where(branch: @branch)
@@ -46,11 +21,22 @@ class PostsController < ApplicationController
     end
   end
 
+  def hobby
+    posts_for_branch(params[:action])
+  end
+
+  def study
+    posts_for_branch(params[:action])
+  end
+
+  def team
+    posts_for_branch(params[:action])
+  end
+
   private
 
-  def posts_for_branch(branch)
-    @categories = Category.where(branch: branch)
-    @posts = get_posts.paginate(page: params[:page])
+  def conversation_exist?
+    Private::Conversation.between_users(current_user.id, @post.user.id).present?
   end
 
   def post_params
@@ -58,7 +44,20 @@ class PostsController < ApplicationController
           .merge(user_id: current_user.id)
   end
 
-  def conversation_exist?
-    Private::Conversation.between_users(current_user.id, @post.user.id).present?
+  def posts_for_branch(branch)
+    @categories = Category.where(branch: branch)
+    @posts = get_posts.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.js { render partial: 'posts/posts_pagination_page' }
+    end
+  end
+
+  def get_posts
+    PostsForBranchService.new(
+      search: params[:search],
+      category: params[:category],
+      branch: params[:action]
+    ).call
   end
 end
