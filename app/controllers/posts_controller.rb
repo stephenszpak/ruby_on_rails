@@ -21,6 +21,9 @@ class PostsController < ApplicationController
     end
   end
 
+  def uploade
+  end
+
   def hobby
     posts_for_branch(params[:action])
   end
@@ -40,8 +43,11 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :title, :category_id)
+    params.require(:post).permit(:content, :title, :category_id, images: [])
           .merge(user_id: current_user.id)
+
+          
+          @posts.images.attach(params[:images])
   end
 
   def posts_for_branch(branch)
